@@ -25,7 +25,7 @@ namespace ElectionData.Data.Repositories
 
         public async Task<bool> CheckIfPollExists(string pollLink)
         {
-            var poll = await _context.Polls.FindAsync(pollLink);
+            var poll = await _context.Polls.FirstOrDefaultAsync(p => p.PollLink == pollLink);
             return poll != null;
         }
 
