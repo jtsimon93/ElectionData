@@ -20,6 +20,10 @@ namespace ElectionData.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CleanPoll>()
+                .HasIndex(p => p.PollLink)
+                .IsUnique();
         }
 
         public void ApplyMigrations()
