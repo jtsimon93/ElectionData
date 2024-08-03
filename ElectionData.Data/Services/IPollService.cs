@@ -1,4 +1,5 @@
-﻿using ElectionData.Data.Entities;
+﻿using ElectionData.Data.Dtos;
+using ElectionData.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace ElectionData.Data.Services
         Task AddPollAsync(CleanPoll poll);
         Task<bool> CheckIfPollExists(string pollLink);
         Task ProcessIncomingPolls(IEnumerable<CleanPoll> polls);
+        Task<IEnumerable<PollDto>> GetAllPollsAsync();
     }
 }

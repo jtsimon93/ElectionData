@@ -1,5 +1,7 @@
-﻿using ElectionData.Data.Entities;
+﻿using AutoMapper;
+using ElectionData.Data.Entities;
 using ElectionData.Data.Repositories;
+using ElectionData.Data.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,12 @@ namespace ElectionData.Data.Services
     public class PollService : IPollService
     {
         private readonly IPollRepository _pollRepository;
+        private readonly IMapper _mapper;
 
-        public PollService(IPollRepository pollRepository)
+        public PollService(IPollRepository pollRepository, IMapper mapper)
         {
             _pollRepository = pollRepository;
+            _mapper = mapper;
         }
 
         public async Task AddPollAsync(CleanPoll poll)
@@ -36,6 +40,12 @@ namespace ElectionData.Data.Services
                     await AddPollAsync(poll);
                 }
             }
+        }
+
+        public async Task<IEnumerable<PollDto>> GetAllPollsAsync()
+        {
+            var polls = await _pollRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<PollDto>>(polls);
         }
     }
 }
