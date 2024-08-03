@@ -7,6 +7,7 @@ using ElectionData.Data;
 using ElectionData.Data.Repositories;
 using ElectionData.Data.Services;
 using ElectionData.Scraper.Services;
+using AutoMapper;
 
 namespace ElectionData.Scraper
 {
@@ -51,6 +52,9 @@ namespace ElectionData.Scraper
             // Register DbContext
             services.AddDbContext<ElectionDataDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            // Mapper
+            services.AddAutoMapper(typeof(Profile));
 
             // Register services
             services.AddSingleton<App>();
