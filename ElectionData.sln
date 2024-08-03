@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionData.Data", "ElectionData.Data\ElectionData.Data.csproj", "{5FC9CFF7-B676-430B-B568-58720AF71B55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectionData.Data", "ElectionData.Data\ElectionData.Data.csproj", "{5FC9CFF7-B676-430B-B568-58720AF71B55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionData.API", "ElectionData.API\ElectionData.API.csproj", "{82B2B253-067D-41A7-BE7A-39839645EAF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectionData.API", "ElectionData.API\ElectionData.API.csproj", "{82B2B253-067D-41A7-BE7A-39839645EAF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectionData.Scraper", "ElectionData.Scraper\ElectionData.Scraper.csproj", "{0AA7B81F-76BD-465E-B4C0-D720CD56639A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectionData.Scraper", "ElectionData.Scraper\ElectionData.Scraper.csproj", "{0AA7B81F-76BD-465E-B4C0-D720CD56639A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
