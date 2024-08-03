@@ -53,5 +53,15 @@ namespace ElectionData.Data.Repositories
         {
             return await _context.Polls.OrderByDescending(p => p.EndDate).FirstOrDefaultAsync();
         }
+
+        public async Task<IEnumerable<CleanPoll>> GetPollsByLikelyVoters()
+        {
+            return await _context.Polls.Where(p => p.SampleType == "LV").ToListAsync();
+        }
+
+        public async Task<IEnumerable<CleanPoll>> GetPollsByRegisteredVoters()
+        {
+            return await _context.Polls.Where(p => p.SampleType == "RV").ToListAsync();
+        }
     }
 }

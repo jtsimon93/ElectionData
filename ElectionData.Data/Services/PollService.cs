@@ -65,5 +65,17 @@ namespace ElectionData.Data.Services
             var poll = await _pollRepository.GetLatestPoll();
             return _mapper.Map<PollDto>(poll);
         }
+
+        public async Task<IEnumerable<PollDto>> GetPollsByLikelyVotersAsync()
+        {
+            var polls = await _pollRepository.GetPollsByLikelyVoters();
+            return _mapper.Map<IEnumerable<PollDto>>(polls);
+        }
+
+        public async Task<IEnumerable<PollDto>> GetPollsByRegisteredVotersAsync()
+        {
+            var polls = await _pollRepository.GetPollsByRegisteredVoters();
+            return _mapper.Map<IEnumerable<PollDto>>(polls);
+        }
     }
 }

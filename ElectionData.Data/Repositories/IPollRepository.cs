@@ -14,5 +14,7 @@ namespace ElectionData.Data.Repositories
         Task<IEnumerable<CleanPoll>> GetAllAsync();
         Task<decimal> GetAverageForCandidate(string candidateName);
         Task<CleanPoll?> GetLatestPoll();
+        Task<IEnumerable<CleanPoll>> GetPollsByLikelyVoters();
+        Task<IEnumerable<CleanPoll>> GetPollsByRegisteredVoters();
     }
 }

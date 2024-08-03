@@ -16,5 +16,7 @@ namespace ElectionData.Data.Services
         Task<IEnumerable<PollDto>> GetAllPollsAsync();
         Task<CandidateAveragesDto> GetCandidateAveragesAsync();
         Task<PollDto?> GetLatestPollAsync();
+        Task<IEnumerable<PollDto>> GetPollsByLikelyVotersAsync();
+        Task<IEnumerable<PollDto>> GetPollsByRegisteredVotersAsync();
     }
 }
