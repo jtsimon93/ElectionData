@@ -21,6 +21,11 @@ namespace ElectionData.Data
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public void ApplyMigrations()
+        {
+            this.Database.Migrate();
+        }
     }
 
 }
