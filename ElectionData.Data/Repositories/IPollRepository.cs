@@ -12,5 +12,7 @@ namespace ElectionData.Data.Repositories
         Task AddAsync(CleanPoll poll);
         Task<bool> CheckIfPollExists(string pollLink);
         Task<IEnumerable<CleanPoll>> GetAllAsync();
+        Task<decimal> GetAverageForCandidate(string candidateName);
+        Task<CleanPoll?> GetLatestPoll();
     }
 }

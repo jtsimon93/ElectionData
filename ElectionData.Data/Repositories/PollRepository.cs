@@ -33,5 +33,25 @@ namespace ElectionData.Data.Repositories
         {
             return await _context.Polls.ToListAsync();
         }
+
+        public async Task<decimal> GetAverageForCandidate(string candidateName)
+        {
+            if (candidateName != "Trump" || candidateName != "Harris")
+            {
+                throw new ArgumentException("Invalid candidate name");
+            }
+
+            if(candidateName == "Trump")
+            {
+                return await _context.Polls.AverageAsync(p => p.Trump);
+            }
+
+            return await _context.Polls.AverageAsync(p => p.Harris);
+        }
+
+        public async Task<CleanPoll?> GetLatestPoll()
+        {
+            return await _context.Polls.OrderByDescending(p => p.EndDate).FirstOrDefaultAsync();
+        }
     }
 }
