@@ -14,5 +14,7 @@ namespace ElectionData.Data.Services
         Task<bool> CheckIfPollExists(string pollLink);
         Task ProcessIncomingPolls(IEnumerable<CleanPoll> polls);
         Task<IEnumerable<PollDto>> GetAllPollsAsync();
+        Task<CandidateAveragesDto> GetCandidateAveragesAsync();
+        Task<PollDto?> GetLatestPollAsync();
     }
 }

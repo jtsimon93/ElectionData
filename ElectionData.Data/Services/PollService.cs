@@ -47,5 +47,23 @@ namespace ElectionData.Data.Services
             var polls = await _pollRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<PollDto>>(polls);
         }
+
+        public async Task<CandidateAveragesDto> GetCandidateAveragesAsync()
+        {
+            var trumpAverage = await _pollRepository.GetAverageForCandidate("Trump");
+            var harrisAverage = await _pollRepository.GetAverageForCandidate("Harris");
+
+            return new CandidateAveragesDto
+            {
+                TrumpAverage = trumpAverage,
+                HarrisAverage = harrisAverage
+            };
+        }
+
+        public async Task<PollDto?> GetLatestPollAsync()
+        {
+            var poll = await _pollRepository.GetLatestPoll();
+            return _mapper.Map<PollDto>(poll);
+        }
     }
 }
