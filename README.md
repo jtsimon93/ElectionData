@@ -13,6 +13,14 @@ This Election Data Project is designed to scrape election poll data from various
 4. **Azure Functions**: For hosting the API
 5. **React**: For the front-end web application
 
+## Configuration
+
+### Configuration Files
+There are two example configuration files:
+1. **ElectionData.API/local.settings.json.example**: Add your connection string
+2. **ElectionData.Scraper/local.appSettings.json.example**: Add your connection string
+
+After you have added your connection strings in both files, remove the .example file extension. 
 
 ### Database Migrations
 To create migrations run:
