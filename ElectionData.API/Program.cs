@@ -25,6 +25,15 @@ var host = new HostBuilder()
         {
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         });
+
+        // Ensure migrations are applied
+        var serviceProvider = services.BuildServiceProvider();
+        using (var scope = serviceProvider.CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<ElectionDataDbContext>();
+            dbContext.ApplyMigrations();
+        }
+
     })
     .Build();
 
