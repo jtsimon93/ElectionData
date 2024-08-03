@@ -22,9 +22,9 @@ namespace ElectionData.Data.Entities
 
         public decimal? MoE { get; set; }
 
-        public decimal? Trump { get; set; }
+        public decimal Trump { get; set; }
 
-        public decimal? Harris { get; set; }
+        public decimal Harris { get; set; }
 
         public string? Spread { get; set; }
     }
