@@ -15,7 +15,7 @@ namespace ElectionData.Data
 
         }
 
-        public DbSet<CleanPoll> CleanPolls { get; set; }
+        public DbSet<CleanPoll> Polls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
