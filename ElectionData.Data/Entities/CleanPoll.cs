@@ -5,6 +5,8 @@ namespace ElectionData.Data.Entities
     public class CleanPoll
     {
         [Key]
+        public int Id { get; set; }
+
         public string PollLink { get; set; }
 
         [Required]
@@ -14,7 +16,9 @@ namespace ElectionData.Data.Entities
 
         public DateOnly? EndDate { get; set; }
 
-        public string? Sample { get; set; }
+        public int? SampleSize { get; set; }
+
+        public string? SampleType { get; set; }
 
         public decimal? MoE { get; set; }
 
