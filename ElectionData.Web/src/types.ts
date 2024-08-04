@@ -22,3 +22,9 @@ export interface AggregatedPollDataByEndDateDto {
     trumpAverage: number;
     harrisAverage: number;
 }
+
+export interface AggregatedPollDataByPollsterDto {
+    pollster: string;
+    trumpAverage: number;
+    harrisAverage: number;
+}
