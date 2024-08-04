@@ -59,7 +59,7 @@ const AggregatedPollDataByEndDateChart = () => {
     const bidenDroppedOutDate = "2024-07-21";
 
     return (
-        <div className="w-full flex flex-col justify-center items-center mt-4">
+        <div className="w-full flex flex-col justify-center items-center mt-4 border border-gray-300 rounded-lg px-4 py-6 bg-white shadow-md">
            <h2 className="text-2xl font-bold text-center">Aggregated Poll Results by End Date</h2> 
                 <Plot
                     data={[

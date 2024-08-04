@@ -53,7 +53,7 @@ const AggregatedPollDataByPollsterChart = () => {
     const harrisAverages = data.map(d => d.harrisAverage);
 
     return (
-        <div className="w-full flex flex-col justify-center items-center mt-4">
+        <div className="w-full flex flex-col justify-center items-center mt-4 border border-gray-300 rounded-lg py-6 px-4 bg-white shadow-md">
             <h2 className="text-2xl font-bold text-center">Aggregated Poll Results by Pollster</h2>
             <Plot
                 data={[
