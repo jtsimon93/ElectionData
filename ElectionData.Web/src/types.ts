@@ -11,3 +11,8 @@ export interface PollDto {
     harris: number | null;
     spread: string | null;
 }
+
+export interface CandidateAveragesDto {
+    trumpAverage: number;
+    harrisAverage: number;
+}
