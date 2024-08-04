@@ -2,9 +2,10 @@
 import { AggregatedPollDataByEndDateDto } from "@/types";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
-import Plot from "react-plotly.js";
+import dynamic from "next/dynamic";
 
 const AggregatedPollDataByEndDateChart = () => {
+    const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
     const [data, setData] = useState<AggregatedPollDataByEndDateDto[] | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
