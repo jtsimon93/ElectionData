@@ -1,5 +1,6 @@
 import LatestPollInfoBox from "@/components/LatestPollInfoBox";
 import Loading from "@/components/Loading";
+import OverallAverageInfoBox from "@/components/OverallAverageInfoBox";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -11,12 +12,16 @@ export default function Home() {
       </div>
 
       <div className="w-full flex flex-row gap-4 justify-center items-center mt-5">
-        <div>
+        <div className="flex-1">
           <Suspense fallback={<Loading />}>
             <LatestPollInfoBox /> 
           </Suspense>
         </div>
-        <div>Overall Results</div>
+        <div className="flex-1">
+          <Suspense fallback={<Loading />}>
+            <OverallAverageInfoBox />
+          </Suspense>
+        </div>
       </div>
     </main>
   );
