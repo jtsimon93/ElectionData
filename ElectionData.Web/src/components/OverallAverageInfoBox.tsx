@@ -30,7 +30,7 @@ const OverallAverageInfoBox = () => {
                         const winner = data.trumpAverage > data.harrisAverage ? "Trump" : "Harris";
                         const points = Math.abs(data.trumpAverage - data.harrisAverage).toFixed(2);
     
-                        const message = `${winner} is leading by ${points}!`
+                        const message = `${winner} is leading by ${points} points`
                         setLeaderMessage(message);
 
                         if(winner == 'Trump') {

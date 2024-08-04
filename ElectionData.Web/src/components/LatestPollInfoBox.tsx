@@ -37,7 +37,7 @@ const LatestPollInfoBox = ({ initialPollData = null }: LatestPollInfoBoxProps) =
                         const winner = data.trump > data.harris ? "Trump" : "Harris";
                         const points = Math.abs(data.trump - data.harris).toFixed(2);
     
-                        const message = `${winner} is leading by ${points} points!`
+                        const message = `${winner} is leading by ${points} points`
                         setLeaderMessage(message);
 
                         if(winner == 'Trump') {
