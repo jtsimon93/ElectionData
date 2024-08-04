@@ -23,11 +23,19 @@ const LatestPollInfoBox = ({ initialPollData = null }: LatestPollInfoBoxProps) =
                 if (response.ok) {
                     const data: PollDto = await response.json();
 
+                    // Parse to 2 decimal places
+                    if (data.trump != null) {
+                        data.trump = parseFloat(data.trump.toFixed(2));
+                    }
+                    if (data.harris != null) {
+                        data.harris = parseFloat(data.harris.toFixed(2));
+                    }
+
                     setPollData(data);
 
                     if (data.harris != null && data.trump != null) {
                         const winner = data.trump > data.harris ? "Trump" : "Harris";
-                        const points = Math.abs(data.trump - data.harris);
+                        const points = Math.abs(data.trump - data.harris).toFixed(2);
     
                         const message = `${winner} is leading by ${points} points!`
                         setLeaderMessage(message);
@@ -65,8 +73,8 @@ const LatestPollInfoBox = ({ initialPollData = null }: LatestPollInfoBoxProps) =
         <div className="border border-gray-300 rounded-lg p-6 max-w-md mx-auto bg-white shadow-md">
             <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Latest Poll Results</h2>
             <div className="flex flex-col items-center">
-                <p className="text-xl mb-2"><strong>Trump:</strong> {pollData.trump}</p>
-                <p className="text-xl mb-2"><strong>Harris:</strong> {pollData.harris}</p>
+                <p className="text-xl mb-2"><strong>Trump:</strong> {pollData.trump}%</p>
+                <p className="text-xl mb-2"><strong>Harris:</strong> {pollData.harris}%</p>
                 <p className={`mb-2 text-base font-bold ${leaderMessageColor}`}>{leaderMessage}</p>
                 <p className="text-xs">Latest poll ended on: {pollData.endDate ? new Date(pollData.endDate).toLocaleDateString() : 'N/A'}</p>
             </div>
