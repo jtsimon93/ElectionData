@@ -77,5 +77,24 @@ namespace ElectionData.Data.Services
             var polls = await _pollRepository.GetPollsByRegisteredVoters();
             return _mapper.Map<IEnumerable<PollDto>>(polls);
         }
+
+        public async Task<IEnumerable<AggregatedPollDataByEndDateDto>> GetAggregatedPollDataByEndDateAsync()
+        {
+            var polls = await _pollRepository.GetAllAsync();
+
+            var aggregatedPollData = polls
+                .Where(p => p.EndDate.HasValue)
+                .GroupBy(p => p.EndDate.Value)
+                .Select(g => new AggregatedPollDataByEndDateDto
+                {
+                    EndDate = g.Key,
+                    TrumpAverage = g.Average(p => p.Trump),
+                    HarrisAverage = g.Average(p => p.Harris)
+                })
+                .OrderBy(p => p.EndDate)
+                .ToList();
+
+            return aggregatedPollData;
+        }
     }
 }
