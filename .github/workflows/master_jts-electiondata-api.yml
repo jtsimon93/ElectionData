@@ -9,6 +9,7 @@ on:
       - master
     paths:
       - 'ElectionData.API/**'
+      - 'ElectionData.Data/**'
   workflow_dispatch:
 
 env:
