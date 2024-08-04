@@ -96,5 +96,24 @@ namespace ElectionData.Data.Services
 
             return aggregatedPollData;
         }
+
+        public async Task<IEnumerable<AggregatedPollDataByPollsterDto>> GetAggregatedPollDataByPollsterAsync()
+        {
+            var polls = await _pollRepository.GetAllAsync();
+
+            var aggregatedPollData = polls
+                .Where(p => !string.IsNullOrEmpty(p.Pollster))
+                .GroupBy(p => p.Pollster)
+                .Select(g => new AggregatedPollDataByPollsterDto
+                {
+                    Pollster = g.Key,
+                    TrumpAverage = g.Average(p => p.Trump),
+                    HarrisAverage = g.Average(p => p.Harris)
+                })
+                .OrderBy(p => p.Pollster)
+                .ToList();
+
+            return aggregatedPollData;
+        }
     }
 }
