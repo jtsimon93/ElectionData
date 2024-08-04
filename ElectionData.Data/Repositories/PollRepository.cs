@@ -36,7 +36,7 @@ namespace ElectionData.Data.Repositories
 
         public async Task<decimal> GetAverageForCandidate(string candidateName)
         {
-            if (candidateName != "Trump" || candidateName != "Harris")
+            if (candidateName != "Trump" && candidateName != "Harris")
             {
                 throw new ArgumentException("Invalid candidate name");
             }
