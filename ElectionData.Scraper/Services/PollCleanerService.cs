@@ -102,6 +102,10 @@ namespace ElectionData.Scraper.Services
 
                             // Extract non-numeric part
                             var nonNumericPart = new string(dirtyPoll.Sample.Where(c => !char.IsDigit(c)).ToArray());
+
+                            // Remove whitespace
+                            nonNumericPart = nonNumericPart.Trim();
+
                             cleanPoll.SampleType = !string.IsNullOrEmpty(nonNumericPart) ? nonNumericPart : null;
                         }
                         catch (Exception ex)
