@@ -1,6 +1,6 @@
 "use client";
-import { AggregatedPollDataByPollsterDto } from "@/types"
-import { useEffect, useState } from "react"
+import { AggregatedPollDataByPollsterDto } from "@/types";
+import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import dynamic from "next/dynamic";
 
@@ -11,7 +11,6 @@ const AggregatedPollDataByPollsterChart = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-
         const fetchPollData = async () => {
             try {
                 setLoading(true);
@@ -21,33 +20,30 @@ const AggregatedPollDataByPollsterChart = () => {
 
                 const response = await fetch(apiUrl);
 
-                if(response.ok) {
+                if (response.ok) {
                     const responseData: AggregatedPollDataByPollsterDto[] = await response.json();
 
                     setData(responseData);
                     setLoading(false);
                     setError(null);
-
                 } else {
                     setError("Failed to fetch aggregated poll data.");
                     setLoading(false);
                 }
-
-            } catch(error) {
+            } catch (error) {
                 setError("Error fetching aggregated poll data.");
                 setLoading(false);
             }
-        }
+        };
 
         fetchPollData();
-
     }, []);
 
-    if(error) {
+    if (error) {
         return <div>{error}</div>;
     }
 
-    if(data == null || loading) {
+    if (data == null || loading) {
         return <Loading />;
     }
 
@@ -56,11 +52,10 @@ const AggregatedPollDataByPollsterChart = () => {
     const trumpAverages = data.map(d => d.trumpAverage);
     const harrisAverages = data.map(d => d.harrisAverage);
 
-    return(
+    return (
         <div className="w-full flex flex-col justify-center items-center mt-4">
             <h2 className="text-2xl font-bold text-center">Aggregated Poll Results by Pollster</h2>
-
- <Plot
+            <Plot
                 data={[
                     {
                         x: pollsters,
@@ -77,16 +72,17 @@ const AggregatedPollDataByPollsterChart = () => {
                         marker: { color: 'blue' }
                     }
                 ]}
-                layout={{ 
+                layout={{
                     barmode: 'group',
                     xaxis: { title: 'Pollster' },
                     yaxis: { title: 'Average', range: [Math.min(...trumpAverages, ...harrisAverages) - 5, Math.max(...trumpAverages, ...harrisAverages) + 5] },
-                                    }}
-                style={{ width: "100%", height: "100%"}}
+                    margin: { t: 50 },
+                }}
+                useResizeHandler={true}
+                style={{ width: "100%", height: "100%" }}
             />
-
         </div>
     );
-}
+};
 
 export default AggregatedPollDataByPollsterChart;
