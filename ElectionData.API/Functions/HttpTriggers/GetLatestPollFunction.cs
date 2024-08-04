@@ -17,7 +17,7 @@ namespace ElectionData.API.Functions.HttpTriggers
             _pollService = pollService;
         }
 
-        [Function("GetLatestPollFunction")]
+        [Function("GetLatestPoll")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
         {
             _logger.LogInformation("GetLatestPollFunction called");
