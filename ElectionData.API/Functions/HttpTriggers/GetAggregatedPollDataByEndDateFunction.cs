@@ -18,7 +18,7 @@ namespace ElectionData.API.Functions.HttpTriggers
         }
 
         [Function("GetAggregatedPollDataByEndDate")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
         {
             _logger.LogInformation("GetAggregatedPollDataByEndDate called");
             var pollData = await _pollService.GetAggregatedPollDataByEndDateAsync();
