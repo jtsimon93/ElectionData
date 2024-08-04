@@ -1,4 +1,5 @@
 import AggregatedPollDataByEndDateChart from "@/components/AggregatedPollDataByEndDateChart";
+import AggregatedPollDataByPollsterChart from "@/components/AggregatedPollDataByPollsterChart";
 import LatestPollInfoBox from "@/components/LatestPollInfoBox";
 import Loading from "@/components/Loading";
 import OverallAverageInfoBox from "@/components/OverallAverageInfoBox";
@@ -51,6 +52,12 @@ export default function Home() {
         <Suspense fallback={<Loading />}>
           <AggregatedPollDataByEndDateChart />
         </Suspense>
+      </div>
+
+      <div className="w-full mx-auto mt-5 md:w-3/4">
+        <Suspense fallback={<Loading />}>
+          <AggregatedPollDataByPollsterChart /> 
+        </Suspense> 
       </div>
     </main>
   );
