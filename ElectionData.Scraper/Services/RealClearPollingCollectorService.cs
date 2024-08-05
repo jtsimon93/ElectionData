@@ -80,8 +80,8 @@ namespace ElectionData.Scraper.Services
                         Date = columns[1],
                         Sample = columns[2],
                         MoE = columns[3],
-                        Trump = columns[4],
-                        Harris = columns[5],
+                        Trump = columns[5],
+                        Harris = columns[4],
                         Spread = columns[6],
                         PollLink = pollLink
                     };
