@@ -65,7 +65,9 @@ namespace ElectionData.Scraper.Services
                     }
 
                     string? pollLink = null;
-                    pollLink = pollsterLinkNode?.GetAttributeValue("href", null);
+                    
+                    // TODO: Refactor to create a better unique identifer for the polls
+                    //pollLink = pollsterLinkNode?.GetAttributeValue("href", null);
 
                     // If the poll link doesn't exist, create some placeholder text that is likely to be unique
                     // For now we will use the pollster and date
