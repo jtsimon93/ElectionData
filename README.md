@@ -1,7 +1,7 @@
 # Election Data Project
 This Election Data Project is designed to scrape election poll data from various websites, clean and store it in a database, and provide a RESTful API to retrieve the data. The project is composed of several components, including a data scraper, a data API, and (soon) a web interface to display the poll data.
 
-View the live application at: https://election.jtismon.dev
+View the live application at: https://election.jtsimon.dev
 
 ## Components
 1. **Data Scraper**: A console application that scrapes election poll data, processes it, and stores it in a PostgreSQL database.
